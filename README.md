@@ -6,8 +6,7 @@ All of the notebooks pertaining to the data sets are contained in the notebooks 
 The scripts (for cleaning a visualization) are contained in the scripts folder.
 Text files containing the exposition can be found in the exposition folder.
 
-This work is intended as a sample of my data analyses and visualization approach. The accurracy of any conclusions that result from this analysis will depend on the quality of the datasets and the methods of collection, which is beyond the aims of this repository.  
-
+This work is intended as a sample of my data analyses and visualization approach. The accurracy of any conclusions that result from this analysis will depend on the quality of the datasets and the methods of collection, which I don't attempt to asses here. 
 **Summary of Datasets:**
 
 1. A dataset indicating level of support (1-7) for social services as well as 5 categories of demographic information. The dataset contains information from 5,916 respondants.  
