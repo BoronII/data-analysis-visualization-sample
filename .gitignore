@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 Plan.txt
+Data/
+.DS_Store
