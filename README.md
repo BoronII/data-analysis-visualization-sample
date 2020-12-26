@@ -18,11 +18,6 @@ source: https://www.kaggle.com/yemregundogmus/turkey-political-opinions
 3. A dataset that lists results from public opinion surveys regarding the US president's approval ratings since 2008. The dataset includes information about the organizations that conducted the polls and the polling methods. 
 source: https://www.kaggle.com/huffingtonpost/presidential-approval
 
-4. A dataset that contains polling responses to various questions (ex: "Do you think President Trump should be impeached and removed from office, or not?") regarding the impeachment of Donald Trump. The dataset includes information about the organizations that conducted the polls and the polling methods. 
-source: https://www.kaggle.com/teejmahal20/trump-impeachement-polls
-
-5. A dataset indicating the level of understanding of and support for basic income amoung respondants in europe. Responses from 9649 individuals are included. 
+4. A dataset indicating the level of understanding of and support for basic income amoung respondants in europe. Responses from 9649 individuals are included. 
 source: https://www.kaggle.com/daliaresearch/basic-income-survey-european-dataset
 
-6. A dataset indicating which candidate (Barak Obama or Mit Romney) respondants were supporting for president in the 2012 US election.
-source: https://www.kaggle.com/kadser/2012-election-obama-vs-romney
