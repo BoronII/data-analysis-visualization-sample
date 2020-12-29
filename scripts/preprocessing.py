@@ -6,6 +6,8 @@ from Preprocessor import Preprocessor
 
 # The data sets are loaded in and processed in sequence
 
+Preprocessor
+
 if __name__ == '__main__':
     
     path = Path('../data')
@@ -74,7 +76,7 @@ if __name__ == '__main__':
    
     ss_preproc.map(columns, mappers)
     
-    ss_preproc.save('social_services_data_processed.csv')
+    ss_preproc.save('../data/processed_data/social_services_data_processed.csv')
     
     # Work on Turkey Political Opinions Dataset-------------------------------
     
@@ -133,7 +135,7 @@ if __name__ == '__main__':
     
     po_preproc.map(response_cols, response)
     
-    po_preproc.save('turkey_political_opinions_processed.csv')
+    po_preproc.save('../data/processed_data/turkey_political_opinions_processed.csv')
     
     # Work on US presidential approval Datasets-------------------------------
     obama = pd.read_csv(path/'presidential_approval_huffpost/obama.csv', 
@@ -171,8 +173,8 @@ if __name__ == '__main__':
     
     assert np.all(obama_preproc.columns==trump_preproc.columns)
     
-    trump_preproc.save('trump_processed.csv')
-    obama_preproc.save('obama_processed.csv')
+    trump_preproc.save('../data/processed_data/trump_processed.csv')
+    obama_preproc.save('../data/processed_data/obama_processed.csv')
     
     # Work on basic income support Datasets-----------------------------------
     
@@ -226,7 +228,7 @@ if __name__ == '__main__':
     
     bi_preproc.map(columns, mappers)
     
-    bi_preproc.save('basic_income_support_processed.csv')
+    bi_preproc.save('../data/processed_data/basic_income_support_processed.csv')
 
     print('Success')
     
