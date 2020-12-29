@@ -1,9 +1,6 @@
 import pandas as pd
 import numpy  as np
 
-from pathlib import Path
-
-
 # All of these will be implemented as methods in the class
 
 # Common steps in preprocessing:
@@ -38,9 +35,9 @@ class Preprocessor:
    
         if len(columns)==len(dict):
             for col in columns:
-                temp = self.df[col]
+                temp = self.df[col].isna()
                 self.df[col] = self.df[col].map(dict[col])
-                assert np.all(self.df[col].isna()==temp.isna())
+                assert np.all(temp==self.df[col].isna()), f'error with column: {col}'
             return self.df
         
         else:
@@ -48,9 +45,7 @@ class Preprocessor:
                 temp = self.df[col]
                 self.df[col] = self.df[col].map(dict)
                 assert np.all(self.df[col].isna()==temp.isna())
-            return self.df  
-        assert np.all(df['Income_Group'].isna()==df['Income_Group'].isna())
- 
+            return self.df   
 
     def map_cols(self, dict):
         self.df.columns = self.df.columns.map(dict)

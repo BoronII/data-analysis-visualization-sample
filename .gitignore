@@ -131,3 +131,4 @@ dmypy.json
 Plan.txt
 Data/
 .DS_Store
+*.csv
