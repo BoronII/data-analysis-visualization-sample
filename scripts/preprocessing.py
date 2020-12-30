@@ -19,6 +19,10 @@ if __name__ == '__main__':
     
     ss_preproc = Preprocessor(ss_data)
     
+    # Drop 'caseid' column because it doesn't contain useful information
+    to_drop = ['caseid']
+    ss_preproc.drop(to_drop)
+
     # Drop rows where the depdant variable is missing
     ss_preproc.dropna(['Support_Services'])
     
@@ -137,99 +141,6 @@ if __name__ == '__main__':
     
     po_preproc.save('../data/processed_data/turkey_political_opinions_processed.csv')
     
-    # Work on US presidential approval Datasets-------------------------------
-    obama = pd.read_csv(path/'presidential_approval_huffpost/obama.csv', 
-                        low_memory=False)
-    
-    trump = pd.read_csv(path/'presidential_approval_huffpost/trump.csv', 
-                        low_memory=False)
-    
-    obama_preproc = Preprocessor(obama)
-    trump_preproc = Preprocessor(trump)
-    
-    # Columns to drop
-    to_drop = ['survey_question']
-    
-    obama_preproc.drop(to_drop)
-    trump_preproc.drop(to_drop)
-    
-    assert np.all(obama_preproc.columns==trump_preproc.columns)
-    
-    # dict for renaming columns
-    columns_new = {'survey_organization': 'survey_organization',
-               'party_affiliation': 'party_affiliation',
-               'start_date': 'start_date',
-               'end_date': 'end_date',
-               'survey_method': 'method',
-               'survey_population': 'population',
-               'survey_sample': 'sample_size',
-               'approve_percent': 'pct_approval',
-               'disapprove_percent': 'pct_disapproval',
-               'undecided_percent': 'pct_undecided',
-               'margin_of_error': 'margin_of_error'}
-    
-    obama_preproc.map_cols(columns_new)
-    trump_preproc.map_cols(columns_new)
-    
-    assert np.all(obama_preproc.columns==trump_preproc.columns)
-    
-    trump_preproc.save('../data/processed_data/trump_processed.csv')
-    obama_preproc.save('../data/processed_data/obama_processed.csv')
-    
-    # Work on basic income support Datasets-----------------------------------
-    
-    basic_income_support = pd.read_csv(path/'basic_income_survey_europe_2016/basic_income_dataset_dalia.csv', 
-                                       low_memory=True)
-    
-    bi_preproc = Preprocessor(basic_income_support)
-    
-    # columns to drop
-    to_drop = ['weight', 'uuid']
-    
-    bi_preproc.drop(to_drop)
-    
-    # dicts for renaming columns
-    columns_new = {'country_code': 'country_code', 
-                   'age': 'age',
-                   'gender': 'gender', 
-                   'rural': 'rural', 
-                   'dem_education_level': 'education_level',
-                   'dem_full_time_job': 'full_time_job', 
-                   'dem_has_children': 'has_children',
-                   'question_bbi_2016wave4_basicincome_awareness': 'awareness',
-                   'question_bbi_2016wave4_basicincome_vote': 'vote',
-                   'question_bbi_2016wave4_basicincome_effect': 'effect',
-                   'question_bbi_2016wave4_basicincome_argumentsfor': 'arguments_for',
-                   'question_bbi_2016wave4_basicincome_argumentsagainst': 'arguments_against',
-                   'age_group': 'age_group'}
-    
-    bi_preproc.map_cols(columns_new)
-        
-    # dict for remapping age column 
-    age_group = {'40_65': '40-65', '26_39': '26-39', '14_25': '14-25'}
-    
-    # dict for remapping effect column
-    effect = {'None of the above': 'None of the above',
-              'A basic income would not affect my work choices': 'A basic income would not affect my work choices',
-              '‰Û_ gain additional skills': 'gain additional skills',
-              '‰Û_ work less': 'work less',
-              '‰Û_ work as a freelancer': 'work as a freelancer',
-              '‰Û_ do more volunteering work': 'do more volunteering work',
-              '‰Û_ stop working': 'stop working',
-              '‰Û_ spend more time with my family': 'spend more time with my family',
-              '‰Û_ look for a different job': 'look for a different job'}
-    
-    # columns to be remapped
-    columns = ['age_group', 'effect']
-    
-    mappers = {'age_group': age_group, 'effect': effect}
-    
-    assert len(columns)==len(mappers)
-    
-    bi_preproc.map(columns, mappers)
-    
-    bi_preproc.save('../data/processed_data/basic_income_support_processed.csv')
-
     print('Success')
     
     
