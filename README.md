@@ -15,9 +15,3 @@ source: https://data.world/tom-harrison/support-for-social-service
 2. A dataset indicating political opinions of turkish respondants. Respondants were asked to indicate yes or no answers to 10 questions such as, "Do You Want to Live in a Secular State?". The dataset contains 4 categories of  demographic information about respondants.
 source: https://www.kaggle.com/yemregundogmus/turkey-political-opinions
 
-3. A dataset that lists results from public opinion surveys regarding the US president's approval ratings since 2008. The dataset includes information about the organizations that conducted the polls and the polling methods. 
-source: https://www.kaggle.com/huffingtonpost/presidential-approval
-
-4. A dataset indicating the level of understanding of and support for basic income amoung respondants in europe. Responses from 9649 individuals are included. 
-source: https://www.kaggle.com/daliaresearch/basic-income-survey-european-dataset
-
