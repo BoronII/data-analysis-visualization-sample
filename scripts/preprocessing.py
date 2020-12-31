@@ -89,9 +89,12 @@ if __name__ == '__main__':
     
     po_preproc = Preprocessor(political_opinions)
     
+    # drop 'Timestamp' coulumn since I wont need it in the analysis
+    to_drop = ['Timestamp']
+    po_preproc.drop(to_drop)
+    
     # dict for translating columns into english
-    columns_eng = {'Timestamp': 'Timestamp',
-                   'Cinsiyet': 'Sex',
+    columns_eng = {'Cinsiyet': 'Sex',
                    'Yas': 'Age',
                    'Bolge':'City',
                    'Egitim': 'Education level',

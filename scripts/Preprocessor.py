@@ -27,24 +27,20 @@ class Preprocessor:
     ----------
     df : pandas dataframe
         the dataframe 
-    columns : list(str)
+    columns : list
         list containing the columns of the df attribute
    
     Methods
     -------
     drop(columns):
         drops a list of columns inplace.
-    
     dropna(subset):
         drops all rows that have nan values in a subset of the columns.
-    
     map(columns, mappers):
         remaps the given list of columns using the mappers provided in 
         a dictionary of mappers.
-    
     map_cols(mapper):
         renames  the columns of the data set using the provided mapper (a dict).
-    
     save(path):
         saves the processed dataframe to the provided path.
         the index column is dropped.
