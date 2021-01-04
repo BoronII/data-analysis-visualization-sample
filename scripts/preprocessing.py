@@ -2,7 +2,7 @@ import pandas as pd
 import numpy  as np
 
 from pathlib      import Path
-from Preprocessor import Preprocessor
+from preprocessor import Preprocessor
 
 # The data sets are loaded in and processed in sequence
 
