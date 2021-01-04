@@ -6,7 +6,6 @@ from Preprocessor import Preprocessor
 
 # The data sets are loaded in and processed in sequence
 
-Preprocessor
 
 if __name__ == '__main__':
     

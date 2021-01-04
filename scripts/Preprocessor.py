@@ -63,6 +63,7 @@ class Preprocessor:
         self.df : pandas dataframe
             The dataframe with columns dropped.
         """
+        
         self.df.drop(columns=columns, inplace=True)
         self.columns = self.df.columns
         return self.df
@@ -82,6 +83,7 @@ class Preprocessor:
             The dataframe with rows that have nan values in the prescribed
             subset dropped.
         """
+        
         self.df.dropna(subset=subset, inplace=True)
         for col in subset:
             assert self.df[col].isna().sum()==0
@@ -105,6 +107,7 @@ class Preprocessor:
         self.df : pandas dataframe
             The dataframe with columns entries remapped according to the mappers.
         """
+        
         if len(columns)==len(mappers):
             for col in columns:
                 temp = self.df[col].isna()
@@ -132,6 +135,7 @@ class Preprocessor:
         self.df : pandas dataframe
             The dataframe with columns renamed according to the mapper.
         """
+        
         self.df.columns = self.df.columns.map(mapper)
         self.columns = self.df.columns
         return self.df
