@@ -9,7 +9,8 @@ import numpy  as np
 # 3. Rename entries in a column from a dict
 # 4. Rename columns from a dict
 # 5. Functionality to use the same dict for a list of columns
-# 6. Save and return processed data frames
+# 6. Fill missing values in a column
+# 7. Save and return processed data frames
 # All operations are done inplace
 
 # Tests
@@ -88,6 +89,27 @@ class Preprocessor:
         for col in subset:
             assert self.df[col].isna().sum()==0
         return self.df
+    
+    def fillna(self, column, value):
+        """fills in missing values of the specified column with the specified
+        value.
+        
+        Parameters
+        ----------
+        column : str
+            column name
+        
+        value : any type
+            value that will be used to replace missing data
+        
+        Returns
+        -------
+        self.df : pandas dataframe
+            The dataframe with columns entries remapped according to the mappers.
+        """
+        
+        self.df[column] = self.df[[column]].fillna(value=value)
+        return self.df
 
     def map(self, columns, mappers):
         """remaps the given list of columns using the mapper or mappers 
@@ -149,6 +171,7 @@ class Preprocessor:
         path : string or pathlike object
             The path where the processed dataframe is saved.
         """
+        
         self.df.to_csv(path, index=False)
 		
 	

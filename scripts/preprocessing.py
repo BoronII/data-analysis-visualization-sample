@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     # Drop rows where the depdant variable is missing
     ss_preproc.dropna(['Support_Services'])
-    
+        
     # dict for remapping 'Income_Group' column entries
     income_group = {1.0: 'Under $5,000', 2.0: '$5,000-$9,999',
                     3.0: '$10,000-$12,499', 4.0: '$12,500-$14,999',
@@ -78,6 +78,9 @@ if __name__ == '__main__':
     assert len(columns)==len(mappers)
    
     ss_preproc.map(columns, mappers)
+    
+    # Replace missing values of 'Trust_In_Gov' column
+    ss_preproc.fillna(column='Trust_In_Gov', value='No Response')
     
     ss_preproc.save('../data/processed_data/social_services_data_processed.csv')
     
